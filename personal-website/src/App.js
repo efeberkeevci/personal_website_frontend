@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import './App.css';
 import Header from './Components/Header.js';
+import About from "./Components/About.js";
+import Calendar from './Calendar';
 
 //import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import ReactGA from 'react-ga';
@@ -41,9 +43,12 @@ class App extends Component {
     }
 
     render() {
-        return ( <
+        return ( < div >
+            <
             Header data = { this.state.resumeData.main }
-            />);
+            />  <
+            Calendar /
+            > < /div > );
         }
     }
 
