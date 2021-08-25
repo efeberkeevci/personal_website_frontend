@@ -4,6 +4,7 @@ import './Styles/App.css';
 import Header from './Components/Header.js';
 import About from "./Components/About.js";
 import Calendar2 from './Components/Calendar2';
+import TodayFocus from "./TodayFocus";
 
 //import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import ReactGA from 'react-ga';
@@ -46,7 +47,18 @@ class App extends Component {
         return ( 
             < div >
                 <Header data = { this.state.resumeData.main }/>  
-                <Calendar2 /> 
+                <h1 id="dividor_h1">What do i work on?</h1>
+                <div id = "things_done_container">
+                    <div id = "calendar_container">
+                        <Calendar2 /> 
+                    </div>
+                    <div id = "todayfocus_container">
+                    <TodayFocus></TodayFocus>
+                    </div>
+                </div>
+                
+                
+                
             </div> 
         );
     }

@@ -1,7 +1,10 @@
 import React from 'react';
 import Calendar from 'react-awesome-calendar';
 import styles from '../Styles/Calendar2.css';
+import {getDays,createEvents, current_month, activities, events} from "../DBCalendarEventsFetch";
 
+
+/*
 const events = [{
   id: 1,
   color: '#fd3153',
@@ -33,16 +36,21 @@ const events = [{
   to: '2020-11-15T21:00:00+00:00',
   title: 'Doctors',
 }];
+*/
 
 class Calendar2 extends React.Component {
   constructor(props) {
     super(props);
     this.calendar = React.createRef();
+    this.state = {
+      events : []
+    }
   }
 
   componentDidMount() {
-    const details = this.calendar.current.getDetails();
+    //const details = this.calendar.current.getDetails();
     // call get events endpoint
+    //getDays(current_month).then(() =>createEvents(activities).then((res) =>{this.setState({events : res})}));
   }
 
   render() {
@@ -53,7 +61,7 @@ class Calendar2 extends React.Component {
           onClickEvent={(event) => console.log('this is an event', event)}
           onChange={(dates) => console.log(dates)}
           onClickTimeLine={(date) => console.log(date)}
-          events={events}
+          events={this.state.events}
         />
       </div>
     );
