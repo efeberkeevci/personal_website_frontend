@@ -1,7 +1,41 @@
 import React from 'react';
 import Calendar from 'react-awesome-calendar';
 import styles from '../Styles/Calendar2.css';
-import {getDays,createEvents, current_month, activities, events} from "../DBCalendarEventsFetch";
+import {getDays,createEvents} from "../DBCalendarEventsFetch";
+
+
+let events = [];
+
+class Calendar2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.calendar = React.createRef();
+    this.state = {
+      e : []
+    }
+  }
+
+  componentDidMount() {
+    //getDays().then((res) =>createEvents(res)).then((my_events) => console.log(my_events));
+  }
+
+  render() {
+    return (
+      <div className={styles.pageCalendar}>
+        <Calendar
+          ref={this.calendar}
+          onClickEvent={(event) => console.log('this is an event', event)}
+          onChange={(dates) => console.log(dates)}
+          onClickTimeLine={(date) => console.log(date)}
+          events={this.state.e}
+        />
+      </div>
+    );
+  }
+}export default Calendar2;
+
+
+
 
 
 /*
@@ -37,33 +71,3 @@ const events = [{
   title: 'Doctors',
 }];
 */
-
-class Calendar2 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.calendar = React.createRef();
-    this.state = {
-      events : []
-    }
-  }
-
-  componentDidMount() {
-    //const details = this.calendar.current.getDetails();
-    // call get events endpoint
-    //getDays(current_month).then(() =>createEvents(activities).then((res) =>{this.setState({events : res})}));
-  }
-
-  render() {
-    return (
-      <div className={styles.pageCalendar}>
-        <Calendar
-          ref={this.calendar}
-          onClickEvent={(event) => console.log('this is an event', event)}
-          onChange={(dates) => console.log(dates)}
-          onClickTimeLine={(date) => console.log(date)}
-          events={this.state.events}
-        />
-      </div>
-    );
-  }
-}export default Calendar2;

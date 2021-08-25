@@ -42,12 +42,14 @@
   text-align: center;
   color: white;
   font-size: 64px;
-  margin-bottom: 100px;
+  margin-bottom: 5%;
+  margin-top: 1%;
 }
 #calendar_container{
   width: 60%;
   background-color: white;
   margin-left: 5%;
+  margin-bottom: 5%;
   border-radius: 40px;
   display: inline-block;
   vertical-align:top;
@@ -57,6 +59,7 @@
   display: inline-block;
 }
 
-#things_done_container{
 
+#things_done_container{
+  height: 100%;
 }
