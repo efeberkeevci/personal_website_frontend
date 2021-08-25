@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./Calendar.css"
+import "./Styles/Calendar.css"
 import TodayFocus from "./TodayFocus"
 import Activity from "./Activity"
 import ActivityReactComponent from "./ActivityReactComponent"
@@ -24,18 +24,15 @@ let num_days_of_month = new Date(date.getFullYear(), date.getMonth() + 1, 0).get
 
 
 class Calendar extends Component {
+
     state = {
         date: new Date()
     }
     componentWillMount() {
             this.createCalendarElements();
+            this.getDays(current_month);
         }
-        //TODO: Solved async problem
-    componentDidMount() {
-        this.getDays(current_month);
-        this.createActivityElements();
-        console.log(activity_items)
-    }
+
     getDays(month) {
         fetch(BACKEND_ROOT_URL + "/days/" + month).then(res => res.json())
             .then(
@@ -117,8 +114,7 @@ class Calendar extends Component {
                                 <
                                 h1 className = "calendar-title" > What do i work on ? < /h1>
 
-                                <
-                                TodayFocus > < /TodayFocus> <
+                                <TodayFocus activities = { activities } > < /TodayFocus> <
                                 div class = "calendar-container" >
                                 <
                                 div class = "calendar-header" >

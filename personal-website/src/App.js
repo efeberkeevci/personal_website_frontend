@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import './App.css';
+import './Styles/App.css';
 import Header from './Components/Header.js';
 import About from "./Components/About.js";
-import Calendar from './Calendar';
+import Calendar2 from './Components/Calendar2';
 
 //import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import ReactGA from 'react-ga';
@@ -43,13 +43,11 @@ class App extends Component {
     }
 
     render() {
-        return ( < div >
-            <
-            Header data = { this.state.resumeData.main }
-            />  <
-            Calendar /
-            > < /div > );
-        }
+        return ( 
+            < div >
+                <Header data = { this.state.resumeData.main }/>  
+                <Calendar2 /> 
+            </div> 
+        );
     }
-
-    export default App;
+}export default App;
